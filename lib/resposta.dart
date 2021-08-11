@@ -8,13 +8,13 @@ class Resposta extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ButtonStyle style =
+        ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 20));
+
     return Container(
       width: double.infinity,
-      child: RaisedButton(
-          textColor: Colors.white,
-          color: Colors.blue,
-          child: Text(texto),
-          onPressed: () {}),
+      child: ElevatedButton(
+          style: style, child: Text(texto), onPressed: quandoSelecionado),
     );
   }
 }
