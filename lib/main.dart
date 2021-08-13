@@ -49,7 +49,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
         _notaTotal += nota;
       });
     }
-    print(_notaTotal);
+  }
+
+  void _reiniciarQuestionario() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _notaTotal = 0;
+    });
   }
 
   @override
@@ -68,7 +74,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
                   perguntas: _perguntas,
                   perguntaSelecionada: _perguntaSelecionada,
                   responder: _responder)
-              : Resultado(_notaTotal)),
+              : Resultado(_notaTotal, _reiniciarQuestionario)),
     );
   }
 }

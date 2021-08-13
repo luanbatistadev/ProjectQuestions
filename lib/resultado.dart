@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class Resultado extends StatelessWidget {
   final int nota;
 
-  Resultado(this.nota);
+  final void Function() quandoReiniciarQuestionario;
+
+  Resultado(this.nota, this.quandoReiniciarQuestionario);
 
   String get fraseResultado {
     if (nota < 8) {
@@ -19,10 +21,15 @@ class Resultado extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Center(
         child: Text(
-      fraseResultado,
-      style: TextStyle(fontSize: 28),
-    ));
+          fraseResultado,
+          style: TextStyle(fontSize: 28),
+        ),
+      ),
+      TextButton(child: Text('Reiniciar?', style: TextStyle(fontSize: 18, color: Colors.blue),),
+      onPressed: quandoReiniciarQuestionario,)
+    ]);
   }
 }
